@@ -31,6 +31,7 @@ type IPrvRest interface {
 	//  responseBody 交易所接口返回的原始字节数据
 	//  err          错误
 	CreateOrder(pair model.CurrencyPair, qty, price float64, side model.OrderSide, orderTy model.OrderType, opt ...model.OptionParameter) (order *model.Order, responseBody []byte, err error)
+	ClosePosition(pair model.CurrencyPair, posSide string, mgnMode string, opts ...model.OptionParameter) ([]byte, error)
 	GetOrderInfo(pair model.CurrencyPair, id string, opt ...model.OptionParameter) (order *model.Order, responseBody []byte, err error)
 	GetPendingOrders(pair model.CurrencyPair, opt ...model.OptionParameter) (orders []model.Order, responseBody []byte, err error)
 	GetHistoryOrders(pair model.CurrencyPair, opt ...model.OptionParameter) (orders []model.Order, responseBody []byte, err error)

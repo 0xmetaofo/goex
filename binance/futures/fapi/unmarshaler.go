@@ -3,9 +3,9 @@ package fapi
 import (
 	"errors"
 	"fmt"
+	"github.com/0xmetaofo/goex/v2/binance/common"
+	"github.com/0xmetaofo/goex/v2/model"
 	"github.com/buger/jsonparser"
-	"github.com/nntaoli-project/goex/v2/binance/common"
-	"github.com/nntaoli-project/goex/v2/model"
 	"github.com/spf13/cast"
 	"time"
 )

@@ -1,6 +1,6 @@
 package options
 
-import "github.com/nntaoli-project/goex/v2/model"
+import "github.com/0xmetaofo/goex/v2/model"
 
 type ResponseUnmarshaler func([]byte, interface{}) error
 type GetTickerResponseUnmarshaler func([]byte) (*model.Ticker, error)

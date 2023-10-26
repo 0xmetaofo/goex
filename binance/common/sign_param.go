@@ -2,7 +2,7 @@ package common
 
 import (
 	"fmt"
-	"github.com/nntaoli-project/goex/v2/util"
+	"github.com/0xmetaofo/goex/v2/util"
 	"net/url"
 	"time"
 )

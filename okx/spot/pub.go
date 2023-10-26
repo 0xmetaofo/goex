@@ -2,7 +2,7 @@ package spot
 
 import (
 	"errors"
-	"github.com/nntaoli-project/goex/v2/model"
+	"github.com/0xmetaofo/goex/v2/model"
 )
 
 func (s *Spot) GetExchangeInfo() (map[string]model.CurrencyPair, []byte, error) {

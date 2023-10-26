@@ -5,8 +5,8 @@ import (
 	"compress/flate"
 	"compress/gzip"
 	"encoding/json"
+	"github.com/0xmetaofo/goex/v2/model"
 	"github.com/google/uuid"
-	"github.com/nntaoli-project/goex/v2/model"
 	"github.com/spf13/cast"
 	"io/ioutil"
 	"net/url"
@@ -14,7 +14,7 @@ import (
 	"strings"
 )
 
-//FloatToString 保留的小数点位数,去除末尾多余的0(StripTrailingZeros)
+// FloatToString 保留的小数点位数,去除末尾多余的0(StripTrailingZeros)
 func FloatToString(v float64, n int) string {
 	ret := strconv.FormatFloat(v, 'f', n, 64)
 	return strconv.FormatFloat(cast.ToFloat64(ret), 'f', -1, 64) //StripTrailingZeros

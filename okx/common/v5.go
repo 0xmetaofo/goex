@@ -2,6 +2,7 @@ package common
 
 import (
 	"encoding/json"
+
 	. "github.com/0xmetaofo/goex/v2/options"
 )
 
@@ -26,6 +27,7 @@ func New() *OKxV5 {
 			TickerUri:           "/api/v5/market/ticker",
 			DepthUri:            "/api/v5/market/books",
 			NewOrderUri:         "/api/v5/trade/order",
+			ClosePositionUri:    "/api/v5/trade/close-position",
 			GetOrderUri:         "/api/v5/trade/order",
 			GetHistoryOrdersUri: "/api/v5/trade/orders-history",
 			GetPendingOrdersUri: "/api/v5/trade/orders-pending",

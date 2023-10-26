@@ -72,6 +72,24 @@ func (prv *Prv) CreateOrder(pair model.CurrencyPair, qty, price float64, side mo
 	return ord, responseBody, err
 }
 
+func (prv *Prv) ClosePosition(pair model.CurrencyPair, posSide string, mgnMode string, opts ...model.OptionParameter) ([]byte, error) {
+	reqUrl := fmt.Sprintf("%s%s", prv.UriOpts.Endpoint, prv.UriOpts.ClosePositionUri)
+	params := url.Values{}
+
+	params.Set("instId", pair.Symbol)
+	params.Set("posSide", posSide)
+	params.Set("mgnMode", mgnMode)
+	util.MergeOptionParams(&params, opts...)
+
+	data, responseBody, err := prv.DoAuthRequest(http.MethodPost, reqUrl, &params, nil)
+	if err != nil {
+		logger.Errorf("[CreateOrder] err=%s, response=%s", err.Error(), string(data))
+		return responseBody, err
+	}
+
+	return responseBody, nil
+}
+
 func (prv *Prv) GetOrderInfo(pair model.CurrencyPair, id string, opt ...model.OptionParameter) (*model.Order, []byte, error) {
 	reqUrl := fmt.Sprintf("%s%s", prv.UriOpts.Endpoint, prv.UriOpts.GetOrderUri)
 	params := url.Values{}

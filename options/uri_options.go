@@ -10,6 +10,7 @@ type UriOptions struct {
 	GetPendingOrdersUri string
 	GetHistoryOrdersUri string
 	CancelOrderUri      string
+	ClosePositionUri    string
 	NewOrderUri         string
 	GetAccountUri       string
 	GetPositionsUri     string
@@ -63,6 +64,12 @@ func WithHeader(header map[string]string) UriOption {
 func WithCancelOrderUri(uri string) UriOption {
 	return func(c *UriOptions) {
 		c.CancelOrderUri = uri
+	}
+}
+
+func WithClosePositionUri(uri string) UriOption {
+	return func(c *UriOptions) {
+		c.ClosePositionUri = uri
 	}
 }
 

@@ -2,6 +2,7 @@ package options
 
 type UriOptions struct {
 	Endpoint            string
+	Header              map[string]string
 	TickerUri           string
 	DepthUri            string
 	KlineUri            string
@@ -50,6 +51,12 @@ func WithGetOrderUri(uri string) UriOption {
 func WithGetPendingOrdersUri(uri string) UriOption {
 	return func(c *UriOptions) {
 		c.GetPendingOrdersUri = uri
+	}
+}
+
+func WithHeader(header map[string]string) UriOption {
+	return func(c *UriOptions) {
+		c.Header = header
 	}
 }
 

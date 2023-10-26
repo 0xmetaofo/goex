@@ -2,6 +2,7 @@ package futures
 
 import (
 	"errors"
+
 	"github.com/0xmetaofo/goex/v2/model"
 	"github.com/0xmetaofo/goex/v2/okx/common"
 	"github.com/0xmetaofo/goex/v2/options"
@@ -12,9 +13,12 @@ type Futures struct {
 	currencyPairM map[string]model.CurrencyPair
 }
 
-func New() *Futures {
+func New(okv5 *common.OKxV5) *Futures {
+	if okv5 == nil {
+		okv5 = common.New()
+	}
 	currencyPairM := make(map[string]model.CurrencyPair, 64)
-	return &Futures{OKxV5: common.New(), currencyPairM: currencyPairM}
+	return &Futures{OKxV5: okv5, currencyPairM: currencyPairM}
 }
 
 func (f *Futures) NewPrvApi(apiOpts ...options.ApiOption) *PrvApi {

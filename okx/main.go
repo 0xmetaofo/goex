@@ -14,7 +14,7 @@ type OKx struct {
 func New() *OKx {
 	return &OKx{
 		Spot:    spot.New(),
-		Futures: futures.New(),
+		Futures: futures.New(nil),
 		Swap:    futures.NewSwap(),
 	}
 }
